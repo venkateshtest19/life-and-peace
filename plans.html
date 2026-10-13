@@ -1,1 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Choose the perfect meditation plan for you. Simple, honest pricing for seniors at Life and Peace in Amarillo, TX.">
+    <title>Our Plans & Pricing | Life and Peace Meditation</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Specific styles for Plans page layouts -->
+    <style>
+        /* Pricing Grid */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 2rem;
+            align-items: stretch;
+        }
 
+        .pricing-card {
+            background-color: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--light-gray);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Highlight the Pro Plan */
+        .pricing-card.featured {
+            border: 3px solid var(--sage-green);
+            transform: scale(1.03);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.03) translateY(-5px);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: var(--soft-terracotta);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            z-index: 10;
+            box-shadow: 0 2px 10px rgba(201, 123, 90, 0.3);
+        }
+
+        .plan-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .plan-details {
+            padding: 35px 30px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        .plan-name {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            color: var(--deep-charcoal);
+            margin-bottom: 5px;
+        }
+
+        .plan-tagline {
+            color: #888;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .plan-price {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--sage-green);
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .plan-price span {
+            font-size: 1.2rem;
+            color: #666;
+            font-weight: 400;
+        }
+
+        .plan-frequency {
+            font-size: 1.1rem;
+            color: var(--deep-charcoal);
+            font-weight: 600;
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .plan-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 30px;
+            flex-grow: 1;
+        }
+
+        .plan-features li {
+            padding: 12px 0;
+            color: #555;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            border-bottom: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .plan-features li:last-child {
+            border-bottom: none;
+        }
+
+        .check-icon {
+            color: var(--sage-green);
+            font-weight: bold;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .plan-btn {
+            width: 100%;
+            padding: 16px;
+            font-size: 1.1rem;
+            margin-top: auto;
+        }
+
+        /* FAQ Section */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background-color: white;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+            overflow: hidden;
+        }
+
+        .faq-item summary {
+            padding: 25px 30px;
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            color: var(--deep-charcoal);
+            cursor: pointer;
+            list-style: none; /* Hides default triangle */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none; /* Hides default triangle in Safari/Chrome */
+        }
+
+        .faq-item summary::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--sage-green);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item[open] summary::after {
+            content: '−';
+        }
+
+        .faq-item[open] summary {
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .faq-answer {
+            padding: 25px 30px;
+            color: #666;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                max-width: 450px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .pricing-card.featured:hover {
+                transform: translateY(-5px);
+            }
+
+            .plan-details {
+                padding: 30px 25px;
+            }
+
+            .faq-item summary, .faq-answer {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip to content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header & Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <img src="images/Life and Peace Logo.png" alt="Life and Peace Logo">
+                </a>
+                
+                <nav class="nav" id="mainNav">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="about.html" class="nav-link">About</a></li>
+                        <li><a href="why-meditation.html" class="nav-link">Why Meditation</a></li>
+                        <li><a href="plans.html" class="nav-link active">Plans</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <div class="header-actions">
+                    <a href="plans.html" class="btn btn-primary">Get Started</a>
+                    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                        <span class="hamburger"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section (Clean, No Image) -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Simple, Honest Pricing</h1>
+                    <p class="hero-subtitle">Choose the plan that fits your pace. No hidden fees, no long-term contracts. Just pure, guided peace of mind.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Cards Section -->
+        <section class="section-padding" style="background-color: var(--soft-white);">
+            <div class="container">
+                <div class="pricing-grid">
+                    
+                    <!-- Starter Plan -->
+                    <div class="pricing-card">
+                        <img src="images/Life and Peace 1.png" alt="Peaceful beginner meditation" class="plan-image">
+                        <div class="plan-details">
+                            <h3 class="plan-name">Starter</h3>
+                            <p class="plan-tagline">Perfect for beginners</p>
+                            <div class="plan-price">$19<span>/month</span></div>
+                            <p class="plan-frequency">10 days a month</p>
+                            
+                            <ul class="plan-features">
+                                <li><span class="check-icon">✓</span> Access to 10 group sessions</li>
+                                <li><span class="check-icon">✓</span> Chair-friendly meditation</li>
+                                <li><span class="check-icon">✓</span> Gentle breathing exercises</li>
+                                <li><span class="check-icon">✓</span> Welcome relaxation kit</li>
+                                <li><span class="check-icon">✓</span> Friendly community access</li>
+                            </ul>
+                            
+                            <a href="contact.html" class="btn btn-outline plan-btn">Choose Starter</a>
+                        </div>
+                    </div>
+
+                    <!-- Pro Plan (Featured) -->
+                    <div class="pricing-card featured">
+                        <div class="popular-badge">Most Popular</div>
+                        <img src="images/Life and Peace 2.png" alt="Group meditation session" class="plan-image">
+                        <div class="plan-details">
+                            <h3 class="plan-name">Pro</h3>
+                            <p class="plan-tagline">Our most loved choice</p>
+                            <div class="plan-price">$34<span>/month</span></div>
+                            <p class="plan-frequency">20 days a month</p>
+                            
+                            <ul class="plan-features">
+                                <li><span class="check-icon">✓</span> <strong>Everything in Starter</strong></li>
+                                <li><span class="check-icon">✓</span> Access to 20 group sessions</li>
+                                <li><span class="check-icon">✓</span> Monthly progress check-in</li>
+                                <li><span class="check-icon">✓</span> Specialized sleep workshops</li>
+                                <li><span class="check-icon">✓</span> Priority session booking</li>
+                                <li><span class="check-icon">✓</span> Take-home audio guides</li>
+                            </ul>
+                            
+                            <a href="contact.html" class="btn btn-primary plan-btn">Choose Pro</a>
+                        </div>
+                    </div>
+
+                    <!-- Max Plan -->
+                    <div class="pricing-card">
+                        <img src="images/Life and Peace 3.png" alt="Deep relaxation and peace" class="plan-image">
+                        <div class="plan-details">
+                            <h3 class="plan-name">Max</h3>
+                            <p class="plan-tagline">Unlimited peace</p>
+                            <div class="plan-price">$49<span>/month</span></div>
+                            <p class="plan-frequency">All days (Unlimited)</p>
+                            
+                            <ul class="plan-features">
+                                <li><span class="check-icon">✓</span> <strong>Everything in Pro</strong></li>
+                                <li><span class="check-icon">✓</span> Unlimited daily sessions</li>
+                                <li><span class="check-icon">✓</span> 1 private 1-on-1 session/month</li>
+                                <li><span class="check-icon">✓</span> Access to weekend retreats</li>
+                                <li><span class="check-icon">✓</span> Bring a family guest (1x/mo)</li>
+                                <li><span class="check-icon">✓</span> Exclusive senior wellness events</li>
+                            </ul>
+                            
+                            <a href="contact.html" class="btn btn-outline plan-btn">Choose Max</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="section-padding" style="background-color: var(--warm-cream);">
+            <div class="container">
+                <h2 class="section-title text-center">Frequently Asked Questions</h2>
+                <p class="section-subtitle text-center">We want you to feel completely comfortable before you begin.</p>
+                
+                <div class="faq-container">
+                    <details class="faq-item">
+                        <summary>Do I need to be flexible or sit on the floor?</summary>
+                        <div class="faq-answer">
+                            Not at all! Our sessions are specifically designed for seniors. We use comfortable, sturdy chairs, and all movements are gentle and adaptable to your body's needs. No flexibility is required.
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>What should I wear or bring to my first session?</summary>
+                        <div class="faq-answer">
+                            Just wear whatever makes you feel comfortable and relaxed. We provide all the materials, water, and a warm environment. Just bring yourself and an open mind!
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Can I change or cancel my plan later?</summary>
+                        <div class="faq-answer">
+                            Absolutely. There are no long-term contracts. You can upgrade, downgrade, or cancel your plan at any time by simply speaking with our front desk staff or giving us a call.
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>I have never meditated before. Is that okay?</summary>
+                        <div class="faq-answer">
+                            It is more than okay—it is wonderful! Our Starter plan is built exactly for beginners. Our instructors will guide you through every single breath, ensuring you never feel lost or overwhelmed.
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Do you offer any discounts for couples or spouses?</summary>
+                        <div class="faq-answer">
+                            Yes! If you and a spouse or partner sign up together, we offer a 15% "Companion Discount" on your monthly plans. Just let us know when you contact us to sign up.
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Banner -->
+        <section class="cta-banner">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 class="cta-title">Still Have Questions?</h2>
+                    <p class="cta-text">Our friendly team is always happy to chat. Give us a call or send a message, and we'll help you find the perfect fit.</p>
+                    <a href="contact.html" class="btn btn-primary btn-large">Contact Us Today</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3 class="footer-title">About Life and Peace</h3>
+                    <p class="footer-text">Dedicated to bringing meditation and inner peace to seniors in Amarillo, Texas. Your well-being is our mission.</p>
+                </div>
+                <div class="footer-column">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="why-meditation.html">Why Meditation</a></li>
+                        <li><a href="plans.html">Our Plans</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3 class="footer-title">Contact Info</h3>
+                    <ul class="footer-contact">
+                        <li>📍 4615 S Virginia St<br>Amarillo, TX 79109</li>
+                        <li>📞 (806) 555-0123</li>
+                        <li>✉️ info@lifeandpeace.com</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3 class="footer-title">Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="return-policy.html">Return Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Life and Peace. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
