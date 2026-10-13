@@ -92,10 +92,6 @@
         padding: 100px 0;
     }
     
-    .hero-background::after {
-        background: linear-gradient(to bottom, rgba(253, 250, 243, 0.95) 0%, rgba(253, 250, 243, 0.8) 100%);
-    }
-    
     .hero-content {
         max-width: 100%;
     }
