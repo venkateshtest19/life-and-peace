@@ -1,1 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about Life and Peace, our mission to bring gentle meditation and inner calm to seniors in Amarillo, TX.">
+    <title>About Us | Life and Peace Meditation</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Specific styles for About page layouts -->
+    <style>
+        .split-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .split-box {
+            background-color: white;
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid var(--sage-green);
+        }
+        .split-box h3 {
+            color: var(--sage-green);
+            margin-bottom: 1rem;
+        }
+        .values-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+        .values-list li {
+            background-color: white;
+            padding: 20px 25px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        .values-list li strong {
+            color: var(--sage-green);
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .values-list li span {
+            color: #666;
+            line-height: 1.6;
+        }
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 3rem;
+        }
+        .approach-card {
+            background-color: white;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        .approach-card h4 {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            color: var(--deep-charcoal);
+            margin-bottom: 1rem;
+        }
+        .approach-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip to content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
+    <!-- Header & Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <img src="images/Life and Peace Logo.png" alt="Life and Peace Logo">
+                </a>
+                
+                <nav class="nav" id="mainNav">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="about.html" class="nav-link active">About</a></li>
+                        <li><a href="why-meditation.html" class="nav-link">Why Meditation</a></li>
+                        <li><a href="plans.html" class="nav-link">Plans</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <div class="header-actions">
+                    <a href="plans.html" class="btn btn-primary">Get Started</a>
+                    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                        <span class="hamburger"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section (Clean, No Image) -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">About Life and Peace</h1>
+                    <p class="hero-subtitle">Rooted in Amarillo, dedicated to the well-being of our senior community. Discover the story behind our gentle approach to meditation.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Story Section -->
+        <section class="welcome section-padding">
+            <div class="container">
+                <div class="welcome-content">
+                    <h2 class="section-title">Our Story</h2>
+                    <p class="welcome-text">Life and Peace was founded with a simple, heartfelt belief: <strong>inner calm has no age limit.</strong> As we watched our parents and grandparents navigate the challenges of aging—dealing with stress, sleepless nights, and the feeling of being left behind—we realized that traditional meditation classes weren't built for them. They moved too fast, sat on the floor, and didn't address the unique physical and emotional needs of older adults.</p>
+                    <p class="welcome-text">So, we created Life and Peace. Located right here in the heart of Amarillo at 4615 S Virginia St, we have built a sanctuary specifically for seniors. Our space is warm, accessible, and entirely judgment-free. Here, meditation isn't about perfect posture or clearing your mind completely; it's about finding moments of joy, reducing physical tension, and connecting with a wonderful community of peers.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission and Vision Section -->
+        <section class="section-padding" style="background-color: var(--soft-white);">
+            <div class="container">
+                <h2 class="section-title text-center">Our Mission & Vision</h2>
+                <div class="split-section">
+                    <div class="split-box">
+                        <h3>Our Mission</h3>
+                        <p>To empower older adults to live healthier, happier, and more peaceful lives by providing accessible, gentle, and expertly guided meditation programs. We strive to create a safe harbor where seniors can relieve stress, improve their cognitive and physical well-being, and rediscover the joy of the present moment.</p>
+                    </div>
+                    <div class="split-box">
+                        <h3>Our Vision</h3>
+                        <p>We envision a community in Amarillo—and beyond—where aging is embraced with grace and tranquility. We see a future where every senior has access to the tools they need to maintain their mental sharpness, emotional balance, and physical comfort, proving that the golden years can truly be the most peaceful years.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Approach Section -->
+        <section class="section-padding" style="background-color: var(--warm-cream);">
+            <div class="container">
+                <h2 class="section-title text-center">Our Gentle Approach</h2>
+                <p class="section-subtitle text-center">We don't believe in a "one size fits all" method. Every session is carefully crafted for the elderly body and mind.</p>
+                
+                <div class="approach-grid">
+                    <div class="approach-card">
+                        <h4>Chair-Friendly Meditation</h4>
+                        <p>No need to sit cross-legged on the floor. All our sessions can be done comfortably in a sturdy chair, ensuring zero strain on your joints, back, or knees while you relax.</p>
+                    </div>
+                    <div class="approach-card">
+                        <h4>Breathwork for Vitality</h4>
+                        <p>We teach simple, safe breathing techniques that help lower blood pressure, improve lung capacity, and instantly calm the nervous system when anxiety arises.</p>
+                    </div>
+                    <div class="approach-card">
+                        <h4>Memory & Focus Exercises</h4>
+                        <p>Our guided visualizations and mindfulness practices are designed to gently stimulate the brain, helping to maintain cognitive sharpness and improve daily focus.</p>
+                    </div>
+                    <div class="approach-card">
+                        <h4>Patient, Certified Guidance</h4>
+                        <p>Our instructors are not just certified; they are deeply compassionate. They speak clearly, move slowly, and are always available to answer questions or offer a reassuring hand.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Values Section -->
+        <section class="section-padding" style="background-color: var(--soft-white);">
+            <div class="container" style="max-width: 900px;">
+                <h2 class="section-title text-center">Our Core Values</h2>
+                <p class="section-subtitle text-center">The principles that guide every interaction, every class, and every breath we take together.</p>
+                
+                <ul class="values-list">
+                    <li>
+                        <div>
+                            <strong>Compassion First</strong>
+                            <span>We treat every member like family. We listen with empathy, understand your unique struggles, and celebrate your small victories.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <strong>Unwavering Patience</strong>
+                            <span>Learning a new skill at any age takes time. We never rush. We honor your pace and ensure you never feel pressured or left behind.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <strong>Community & Connection</strong>
+                            <span>Loneliness is a real challenge for seniors. We foster a warm, welcoming environment where lifelong friendships are naturally formed.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <strong>Integrity & Trust</strong>
+                            <span>We are transparent about our methods, our pricing, and our goals. Your safety and trust are the foundations of our practice.</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- CTA Banner -->
+        <section class="cta-banner">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 class="cta-title">Ready to Join Our Community?</h2>
+                    <p class="cta-text">Experience the Life and Peace difference for yourself. We'd love to welcome you to our next session.</p>
+                    <a href="plans.html" class="btn btn-primary btn-large">View Our Plans</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3 class="footer-title">About Life and Peace</h3>
+                    <p class="footer-text">Dedicated to bringing meditation and inner peace to seniors in Amarillo, Texas. Your well-being is our mission.</p>
+                </div>
+                <div class="footer-column">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="why-meditation.html">Why Meditation</a></li>
+                        <li><a href="plans.html">Our Plans</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3 class="footer-title">Contact Info</h3>
+                    <ul class="footer-contact">
+                        <li> 4615 S Virginia St<br>Amarillo, TX 79109</li>
+                        <li>📞 (806) 555-0123</li>
+                        <li>✉️ info@lifeandpeace.com</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3 class="footer-title">Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="return-policy.html">Return Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Life and Peace. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
