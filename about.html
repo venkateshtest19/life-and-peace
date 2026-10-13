@@ -76,6 +76,17 @@
             color: #666;
             line-height: 1.7;
         }
+
+        /* --- MOBILE FIX FOR MISSION & VISION --- */
+        @media (max-width: 768px) {
+            .split-section {
+                grid-template-columns: 1fr; /* Stacks them vertically */
+                gap: 30px;
+            }
+            .split-box {
+                padding: 30px; /* Slightly less padding on mobile */
+            }
+        }
     </style>
 </head>
 <body>
