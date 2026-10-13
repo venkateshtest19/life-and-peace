@@ -1,1 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover the proven health and wellness benefits of meditation for seniors. Improve sleep, memory, and peace of mind with Life and Peace.">
+    <title>Why Meditation? | Benefits for Seniors | Life and Peace</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Specific styles for Why Meditation page -->
+    <style>
+        /* Benefits Grid */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 3rem;
+        }
 
+        .benefit-card {
+            background-color: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+            border-bottom: 4px solid transparent;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            border-bottom: 4px solid var(--sage-green);
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            background-color: var(--warm-cream);
+            width: 90px;
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+        }
+
+        .benefit-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--deep-charcoal);
+            margin-bottom: 15px;
+        }
+
+        .benefit-card p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        /* Did You Know Callout */
+        .callout-box {
+            background: linear-gradient(135deg, var(--sage-green) 0%, var(--sage-green-dark) 100%);
+            color: white;
+            padding: 50px;
+            border-radius: 16px;
+            text-align: center;
+            margin-top: 4rem;
+            box-shadow: 0 10px 30px rgba(107, 142, 111, 0.2);
+        }
+
+        .callout-box h3 {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .callout-box p {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            max-width: 800px;
+            margin: 0 auto;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        /* Myth vs Fact Section */
+        .myth-fact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 3rem;
+        }
+
+        .myth-box, .fact-box {
+            padding: 40px;
+            border-radius: 12px;
+        }
+
+        .myth-box {
+            background-color: #fdf2f0; /* Very light red/pink for myth */
+            border-left: 5px solid #d97777;
+        }
+
+        .fact-box {
+            background-color: #f0f7f1; /* Very light green for fact */
+            border-left: 5px solid var(--sage-green);
+        }
+
+        .myth-box h4, .fact-box h4 {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .myth-box h4 { color: #a85a5a; }
+        .fact-box h4 { color: var(--sage-green-dark); }
+
+        .myth-box p, .fact-box p {
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        /* Pull Quote */
+        .pull-quote {
+            text-align: center;
+            padding: 60px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .pull-quote blockquote {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            color: var(--deep-charcoal);
+            line-height: 1.4;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .pull-quote cite {
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            color: var(--sage-green);
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .myth-fact-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .callout-box {
+                padding: 30px 20px;
+            }
+
+            .callout-box h3 {
+                font-size: 1.6rem;
+            }
+
+            .callout-box p {
+                font-size: 1.05rem;
+            }
+
+            .pull-quote blockquote {
+                font-size: 1.6rem;
+            }
+
+            .benefit-card {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip to content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header & Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <img src="images/Life and Peace Logo.png" alt="Life and Peace Logo">
+                </a>
+                
+                <nav class="nav" id="mainNav">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="about.html" class="nav-link">About</a></li>
+                        <li><a href="why-meditation.html" class="nav-link active">Why Meditation</a></li>
+                        <li><a href="plans.html" class="nav-link">Plans</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <div class="header-actions">
+                    <a href="plans.html" class="btn btn-primary">Get Started</a>
+                    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                        <span class="hamburger"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section (Clean, No Image) -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Why Meditation?</h1>
+                    <p class="hero-subtitle">It is never too late to start. Discover how a few minutes of gentle mindfulness each day can profoundly improve your health, happiness, and quality of life.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Introduction Section -->
+        <section class="welcome section-padding">
+            <div class="container">
+                <div class="welcome-content">
+                    <h2 class="section-title">A Gentle Tool for the Golden Years</h2>
+                    <p class="welcome-text">As we age, our bodies and minds go through natural changes. We might experience more stress, sleepless nights, or physical aches. While we cannot stop the clock, we <strong>can</strong> change how we experience these years.</p>
+                    <p class="welcome-text">Meditation is not about becoming a monk or sitting in silence for hours. For seniors, it is a practical, scientifically proven tool to lower blood pressure, ease joint pain, sharpen the memory, and find a deep sense of daily joy. At Life and Peace, we make it accessible, comfortable, and deeply rewarding.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Grid Section -->
+        <section class="section-padding" style="background-color: var(--soft-white);">
+            <div class="container">
+                <h2 class="section-title text-center">6 Powerful Benefits for Seniors</h2>
+                <p class="section-subtitle text-center">Backed by science, felt in the heart.</p>
+                
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">😴</div>
+                        <h3>Deeper, Restful Sleep</h3>
+                        <p>Struggling to stay asleep? Meditation calms the nervous system and quietens a racing mind, helping you fall asleep faster and enjoy more restorative rest.</p>
+                    </div>
+
+                    <div class="benefit-card">
+                        <div class="benefit-icon">❤️</div>
+                        <h3>Heart Health & Blood Pressure</h3>
+                        <p>Regular mindfulness practice has been clinically shown to lower high blood pressure and reduce the risk of heart disease by promoting deep physical relaxation.</p>
+                    </div>
+
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🧠</div>
+                        <h3>Sharper Memory & Focus</h3>
+                        <p>Meditation increases blood flow to the brain and strengthens neural connections, helping to maintain cognitive sharpness and improve daily focus.</p>
+                    </div>
+
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🦴</div>
+                        <h3>Reduced Joint & Body Pain</h3>
+                        <p>While it doesn't cure arthritis, meditation changes how the brain processes pain signals, significantly reducing the perceived intensity of chronic aches.</p>
+                    </div>
+
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🧘</div>
+                        <h3>Less Anxiety & Stress</h3>
+                        <p>By focusing on the breath, we lower cortisol (the stress hormone) levels in the body, replacing feelings of worry with a profound sense of calm.</p>
+                    </div>
+
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🤝</div>
+                        <h3>Combating Loneliness</h3>
+                        <p>Joining our group sessions builds a wonderful community. Sharing this journey with peers fosters deep friendships and a strong sense of belonging.</p>
+                    </div>
+                </div>
+
+                <!-- Did You Know Callout -->
+                <div class="callout-box">
+                    <h3>Did You Know?</h3>
+                    <p>According to the National Institutes of Health (NIH), mindfulness meditation can actually slow down the cellular aging process and improve the immune system response in older adults. Just 15 minutes a day can make a measurable difference in your overall health!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Myth vs Fact Section -->
+        <section class="section-padding" style="background-color: var(--warm-cream);">
+            <div class="container">
+                <h2 class="section-title text-center">Common Concerns, Gentle Truths</h2>
+                <p class="section-subtitle text-center">Don't let misconceptions keep you from finding your peace.</p>
+                
+                <div class="myth-fact-grid">
+                    <div class="myth-box">
+                        <h4>❌ The Myth</h4>
+                        <p><strong>"I have to clear my mind completely, and I just can't do it."</strong><br><br>Many people think meditation means having zero thoughts. This is impossible! Meditation is simply about noticing your thoughts without judging them, and gently bringing your focus back to your breath. It's about practice, not perfection.</p>
+                    </div>
+                    <div class="fact-box">
+                        <h4>✅ The Truth</h4>
+                        <p><strong>"I'm not flexible, and I can't sit on the floor."</strong><br><br>You absolutely do not need to sit cross-legged or touch your toes! At Life and Peace, all our sessions are done in comfortable, sturdy chairs. We focus on the mind and breath, not gymnastics. If you can sit in a chair, you can meditate.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pull Quote Section -->
+        <section class="section-padding" style="background-color: var(--soft-white);">
+            <div class="container">
+                <div class="pull-quote">
+                    <blockquote>"Peace comes from within. Do not seek it without."</blockquote>
+                    <cite>— Buddha</cite>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Banner -->
+        <section class="cta-banner">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 class="cta-title">Ready to Experience the Benefits?</h2>
+                    <p class="cta-text">Take the first step toward a calmer, healthier, and happier you. Our doors are always open.</p>
+                    <a href="plans.html" class="btn btn-primary btn-large">View Our Plans</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3 class="footer-title">About Life and Peace</h3>
+                    <p class="footer-text">Dedicated to bringing meditation and inner peace to seniors in Amarillo, Texas. Your well-being is our mission.</p>
+                </div>
+                <div class="footer-column">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="why-meditation.html">Why Meditation</a></li>
+                        <li><a href="plans.html">Our Plans</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3 class="footer-title">Contact Info</h3>
+                    <ul class="footer-contact">
+                        <li>📍 4615 S Virginia St<br>Amarillo, TX 79109</li>
+                        <li>📞 (806) 555-0123</li>
+                        <li>✉️ info@lifeandpeace.com</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3 class="footer-title">Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="return-policy.html">Return Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Life and Peace. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
